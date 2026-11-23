@@ -1,7 +1,7 @@
 {
 	"name": "gnani-ai",
-	"version": "0.1.0",
-	"description": "Unofficial community provider for Gnani Prisma transcription and Timbre speech in the Vercel AI SDK",
+	"version": "0.1.1",
+	"description": "Gnani AI speech models for the Vercel AI SDK. Use Prisma for speech-to-text and Timbre for text-to-speech in nine Indian languages and English.",
 	"scripts": {
 		"test": "vitest run",
 		"dev": "tsdown --watch",
