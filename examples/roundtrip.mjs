@@ -1,5 +1,4 @@
-import { generateSpeech, transcribe } from "ai";
-import { Gnani } from "gnani";
+import { Gnani, generateSpeech, transcribe } from "gnani";
 
 const gnani = new Gnani();
 const { audio } = await generateSpeech({

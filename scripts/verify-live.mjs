@@ -6,8 +6,7 @@ import {
 	writeFileSync,
 } from "node:fs";
 import { join } from "node:path";
-import { generateSpeech, transcribe } from "ai";
-import { gnani } from "gnani";
+import { generateSpeech, gnani, transcribe } from "gnani";
 import catalog from "./live-catalog.json" with { type: "json" };
 
 const directory = process.argv[2];

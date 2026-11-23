@@ -4,7 +4,7 @@
 
 ## Install
 
-In an AI SDK 7 project, install the provider with your package manager.
+Install the provider with your package manager.
 
 | Package manager | Command              |
 | --------------- | -------------------- |
@@ -14,9 +14,7 @@ In an AI SDK 7 project, install the provider with your package manager.
 | Bun             | `bun add gnani`      |
 | Deno            | `deno add npm:gnani` |
 
-For a new project, add `ai@^7` alongside `gnani` so you can import the SDK functions directly. For example, run `npm i gnani ai@^7` or `deno add npm:gnani npm:ai@^7`. The package ships ESM, CommonJS and TypeScript declarations. Node.js 22.12 or later supports both entry points.
-
-Yarn Plug’n’Play also requires the app to declare AI SDK 7’s Zod peer. In a new Yarn project, run `yarn add gnani ai@^7 zod@^4`.
+The package includes AI SDK 7 and re-exports its `transcribe` and `generateSpeech` functions. Existing AI SDK 7 applications can also import those functions directly from `ai`. The package ships ESM, CommonJS and TypeScript declarations. Node.js 22.12 or later supports both entry points.
 
 ## Transcribe and generate speech
 
@@ -24,8 +22,7 @@ Set `GNANI_API_KEY` in your server environment. You can create a key in the [Gna
 
 ```ts
 import { readFile, writeFile } from "node:fs/promises";
-import { generateSpeech, transcribe } from "ai";
-import { Gnani } from "gnani";
+import { Gnani, generateSpeech, transcribe } from "gnani";
 
 const gnani = new Gnani({ apiKey: process.env.GNANI_API_KEY });
 
@@ -96,7 +93,7 @@ npm test
 npm run build
 ```
 
-With a Gnani API key, run `node examples/roundtrip.mjs` for a live speech round trip. The full opt-in voice and language suite writes WAV files and a JSONL report to a directory you choose. Its 856 requests use your Gnani account. It tests all 76 voices across ten languages plus Hinglish and compares both Prisma models’ transcripts against known phrases in all ten transcription languages.
+With a Gnani API key, run `node examples/roundtrip.mjs` for a live speech round trip. The full opt-in voice and language suite writes WAV files and a JSONL report to a directory you choose. Its 856 cases use your Gnani account. It tests all 76 voices across ten languages plus Hinglish and compares both Prisma models’ transcripts against known phrases in all ten transcription languages.
 
 ```sh
 npm run test:live -- /tmp/gnani-verification

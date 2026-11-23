@@ -13,14 +13,14 @@ yarn_cli=(yarn)
 if [[ "$manager" == yarn-pnp ]]; then yarn_cli=(corepack yarn@4); fi
 
 case "$manager" in
-  npm) npm install --no-fund --no-audit 'ai@^7' "$archive" ;;
-  pnpm) pnpm add 'ai@^7' "$archive" ;;
-  yarn|yarn-pnp) "${yarn_cli[@]}" add 'ai@^7' 'zod@^4' "gnani@file:$archive" ;;
-  bun) bun add 'ai@^7' "$archive" ;;
+  npm) npm install --no-fund --no-audit "$archive" ;;
+  pnpm) pnpm add "$archive" ;;
+  yarn|yarn-pnp) "${yarn_cli[@]}" add "gnani@file:$archive" ;;
+  bun) bun add "$archive" ;;
   deno)
     # Deno can resolve npm: imports against the exact unpacked release before it is published.
     tar -xzf "$archive"
-    echo '{"nodeModulesDir":"auto","links":["./package"],"imports":{"ai":"npm:ai@^7","gnani":"npm:gnani@*"}}' > deno.json
+    echo '{"nodeModulesDir":"auto","links":["./package"],"imports":{"gnani":"npm:gnani@*"}}' > deno.json
     deno install --quiet
     deno run --cached-only --allow-read --allow-env --allow-sys=hostname check-consumer.mjs
     exit

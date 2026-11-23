@@ -1,3 +1,4 @@
+export { generateSpeech, transcribe } from "ai";
 export { GNANI_PROVIDER_ID, type GnaniProviderSettings } from "./config.js";
 export { createGnani, Gnani, type GnaniProvider, gnani } from "./provider.js";
 export type {
