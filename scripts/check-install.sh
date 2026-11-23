@@ -7,6 +7,9 @@ source_dir=$(cd "$(dirname "$0")" && pwd)
 consumer_dir=$(mktemp -d)
 trap 'rm -rf "$consumer_dir"' EXIT
 cp "$source_dir/check-consumer.mjs" "$consumer_dir/"
+# Yarn Classic caches local archives by path, including between builds of the same version.
+cp "$archive" "$consumer_dir/release.tgz"
+archive="$consumer_dir/release.tgz"
 cd "$consumer_dir"
 echo '{"name":"gnani-consumer-test","private":true,"type":"module"}' > package.json
 yarn_cli=(yarn)
