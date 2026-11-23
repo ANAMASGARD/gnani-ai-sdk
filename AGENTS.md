@@ -1,6 +1,6 @@
-# Working on gnani
+# Working on gnani-ai
 
-This repository builds one unofficial TypeScript community provider for AI SDK 7. The published entry point is `gnani`. Both `new Gnani(settings)` and `createGnani(settings)` use the same adapters.
+This repository builds one unofficial TypeScript community provider for AI SDK 7. The published entry point is `gnani-ai`. Both `new Gnani(settings)` and `createGnani(settings)` use the same adapters.
 
 - Keep changes scoped to the requested models and use the installed `@ai-sdk/provider` V4 specifications. The version-matched specifications are in `node_modules/@ai-sdk/provider/src` and AI SDK examples are in `node_modules/ai/docs`.
 - Keep provider code in `src` portable with Fetch, FormData, Blob, Uint8Array and AbortSignal. Use `src/stt` for Prisma, `src/tts` for Timbre and the shared configuration for authentication and errors.

@@ -1,5 +1,5 @@
 {
-	"name": "gnani",
+	"name": "gnani-ai",
 	"version": "0.1.0",
 	"description": "Unofficial community provider for Gnani Prisma transcription and Timbre speech in the Vercel AI SDK",
 	"scripts": {

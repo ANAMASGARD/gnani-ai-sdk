@@ -1,6 +1,6 @@
 // Run as a standalone file in a clean consumer of the packed npm release.
 import assert from "node:assert/strict";
-import { Gnani, generateSpeech, transcribe } from "gnani";
+import { Gnani, generateSpeech, transcribe } from "gnani-ai";
 
 const speechBytes = Uint8Array.of(0xff, 0xfb, 0x90, 0, 1, 2, 3, 4);
 let requests = 0;

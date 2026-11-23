@@ -1,18 +1,18 @@
 # Gnani AI SDK for TypeScript
 
-`gnani` is an unofficial, community-maintained provider for the Vercel AI SDK. Use your own Gnani AI key to transcribe recordings with Prisma or synthesize speech with Timbre.
+`gnani-ai` is an unofficial, community-maintained provider for the Vercel AI SDK. Use your own Gnani AI key to transcribe recordings with Prisma or synthesize speech with Timbre.
 
 ## Install
 
 Install the provider with your package manager.
 
-| Package manager | Command              |
-| --------------- | -------------------- |
-| npm             | `npm i gnani`        |
-| pnpm            | `pnpm add gnani`     |
-| Yarn            | `yarn add gnani`     |
-| Bun             | `bun add gnani`      |
-| Deno            | `deno add npm:gnani` |
+| Package manager | Command                 |
+| --------------- | ----------------------- |
+| npm             | `npm i gnani-ai`        |
+| pnpm            | `pnpm add gnani-ai`     |
+| Yarn            | `yarn add gnani-ai`     |
+| Bun             | `bun add gnani-ai`      |
+| Deno            | `deno add npm:gnani-ai` |
 
 The package includes AI SDK 7 and re-exports its `transcribe` and `generateSpeech` functions. Existing AI SDK 7 applications can also import those functions directly from `ai`. The package ships ESM, CommonJS and TypeScript declarations. Node.js 22.12 or later supports both entry points.
 
@@ -22,7 +22,7 @@ Set `GNANI_API_KEY` in your server environment. You can create a key in the [Gna
 
 ```ts
 import { readFile, writeFile } from "node:fs/promises";
-import { Gnani, generateSpeech, transcribe } from "gnani";
+import { Gnani, generateSpeech, transcribe } from "gnani-ai";
 
 const gnani = new Gnani({ apiKey: process.env.GNANI_API_KEY });
 
@@ -60,7 +60,7 @@ On Deno, a live in-memory round trip uses `--allow-net=api.vachana.ai --allow-en
 REST transcription accepts WAV, MP3, OGG, FLAC, AAC and M4A recordings up to 30 seconds. Pass Gnani’s REST field names in `providerOptions.gnani`. For v3.0, `language_code` accepts `indic-auto` or up to four comma-separated locales. [Prisma REST reference](https://docs.gnani.ai/api/STT/speech-to-text) · [Supported languages](https://docs.gnani.ai/api/STT/languages)
 
 ```ts
-import type { GnaniTranscriptionOptions } from "gnani";
+import type { GnaniTranscriptionOptions } from "gnani-ai";
 
 const options = {
 	language_code: "hi-IN,en-IN",

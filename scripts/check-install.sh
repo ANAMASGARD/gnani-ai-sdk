@@ -18,12 +18,12 @@ if [[ "$manager" == yarn-pnp ]]; then yarn_cli=(corepack yarn@4); fi
 case "$manager" in
   npm) npm install --no-fund --no-audit "$archive" ;;
   pnpm) pnpm add "$archive" ;;
-  yarn|yarn-pnp) "${yarn_cli[@]}" add "gnani@file:$archive" ;;
+  yarn|yarn-pnp) "${yarn_cli[@]}" add "gnani-ai@file:$archive" ;;
   bun) bun add "$archive" ;;
   deno)
     # Deno can resolve npm: imports against the exact unpacked release before it is published.
     tar -xzf "$archive"
-    echo '{"nodeModulesDir":"auto","links":["./package"],"imports":{"gnani":"npm:gnani@*"}}' > deno.json
+    echo '{"nodeModulesDir":"auto","links":["./package"],"imports":{"gnani-ai":"npm:gnani-ai@*"}}' > deno.json
     deno install --quiet
     deno run --cached-only --allow-read --allow-env --allow-sys=hostname check-consumer.mjs
     exit
@@ -37,4 +37,4 @@ case "$manager" in
   *) runner=(node) ;;
 esac
 "${runner[@]}" check-consumer.mjs
-"${runner[@]}" -e 'const { Gnani } = require("gnani"); if (new Gnani().speech("timbre-v3.0").specificationVersion !== "v4") process.exit(1)'
+"${runner[@]}" -e 'const { Gnani } = require("gnani-ai"); if (new Gnani().speech("timbre-v3.0").specificationVersion !== "v4") process.exit(1)'
